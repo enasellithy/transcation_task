@@ -1,14 +1,12 @@
 <?php
 
-
-namespace App\SOLID\Traits;
-
+namespace App\Solid\Traits;
 
 trait MessageTraits
 {
     public function done()
     {
-        return session()->flash('success', 'تم التحديث بنجاح');
+        return session()->flash('success', 'Request Is Successfully');
     }
 
     public function errorMsg($msg = null)

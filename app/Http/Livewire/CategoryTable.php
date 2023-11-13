@@ -2,16 +2,14 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\User;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
-class UserTable extends DataTableComponent
+class CategoryTable extends DataTableComponent
 {
-    protected $model = User::class;
+    protected $model = Category::class;
     protected $listeners = ['refresh' => '$refresh', 'changeFilter', 'resetPage'];
 
     public function resetPage($pageName = 'page')
@@ -36,11 +34,8 @@ class UserTable extends DataTableComponent
             Column::make('Name', "name")
                 ->searchable()
                 ->sortable(),
-            Column::make('Email', "email")
-                ->searchable()
-                ->sortable(),
-            Column::make('role', 'id')
-                ->view('users.columns.roles')
+            Column::make('action', "id")
+                ->view('category.btn.action')
                 ->searchable()
                 ->sortable(),
         ];
@@ -48,6 +43,6 @@ class UserTable extends DataTableComponent
 
     public function builder(): Builder
     {
-        return User::with('roles')->latest()->select('*');
+        return Category::latest()->select('*');
     }
 }

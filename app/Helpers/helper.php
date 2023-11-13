@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Auth;
 
 if (!function_exists('aurl')) {
     function aurl($url = null) {
-        return url($url);
+        return url('dashboard/'.$url);
     }
 }
 

@@ -2,16 +2,14 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Article;
+use App\Models\SubCategory;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
-class ArticleTable extends DataTableComponent
+class SubCategoryTable extends DataTableComponent
 {
-    protected $model = Article::class;
+    protected $model = SubCategory::class;
     protected $listeners = ['refresh' => '$refresh', 'changeFilter', 'resetPage'];
 
     public function resetPage($pageName = 'page')
@@ -33,17 +31,14 @@ class ArticleTable extends DataTableComponent
     {
         return [
             Column::make("id", "id"),
-            Column::make('title', "title")
+            Column::make('Name', "name")
                 ->searchable()
                 ->sortable(),
-            Column::make('User', "user.name")
+            Column::make('Category', "category.name")
                 ->searchable()
                 ->sortable(),
-            Column::make('Published At', 'created_at')
-                ->searchable()
-                ->sortable(),
-            Column::make('Action', 'id')
-                ->view('article.columns.action')
+            Column::make('action', "id")
+                ->view('sub_category.btn.action')
                 ->searchable()
                 ->sortable(),
         ];
@@ -51,9 +46,6 @@ class ArticleTable extends DataTableComponent
 
     public function builder(): Builder
     {
-        if(!Auth::user()->roles[0]['User']){
-          return  Article::with('user')->select('*');
-        }
-        return Article::where('user_id',Auth::id())->select('*');
+        return SubCategory::with('category')->select('*');
     }
 }

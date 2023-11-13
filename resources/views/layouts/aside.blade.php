@@ -41,8 +41,8 @@
     <ul class="menu-inner py-1">
         @can('home')
             <!-- Dashboards -->
-            <li class="menu-item  {{ active_link('home') }}">
-                <a href="{{ aurl('home') }}" class="menu-link">
+            <li class="menu-item  {{ active_link('dashboard') }}">
+                <a href="{{ aurl('') }}" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-smart-home"></i>
                     <div data-i18n="Home">
                         Home
@@ -51,28 +51,6 @@
             </li>
         @endcan
 
-
-                <!-- Dashboards -->
-                <li class="menu-item  {{ active_link('home') }}">
-                    <a href="{{ aurl('') }}" class="menu-link">
-                        <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                        <div data-i18n="Articles Page">
-                            Articles
-                        </div>
-                    </a>
-                </li>
-
-            @can('users.index')
-
-                <li class="menu-item {{ active_link('users') }}">
-                    <a href="{{ aurl('users') }}" class="menu-link">
-                        <i class="menu-icon tf-icons ti ti-users"></i>
-                        <div data-i18n="Users">
-                            Users
-                        </div>
-                    </a>
-                </li>
-            @endcan
 
             @can('roles.index')
 
@@ -86,16 +64,29 @@
                 </li>
             @endcan
 
-            @can('articles.index')
+            @can('category.index')
 
-                <li class="menu-item {{ active_link('articles') }}">
-                    <a href="{{ aurl('articles') }}" class="menu-link">
-                        <i class="menu-icon tf-icons ti ti-file"></i>
-                        <div data-i18n="Articles">
-                            Articles
+                <li class="menu-item {{ active_link('dashboard/category') }}">
+                    <a href="{{ aurl('category') }}" class="menu-link">
+                        <i class="menu-icon tf-icons ti ti-tags"></i>
+                        <div data-i18n="Category">
+                            Category
                         </div>
                     </a>
                 </li>
             @endcan
+
+            @can('sub_category.index')
+
+                <li class="menu-item {{ active_link('dashboard/sub_category') }}">
+                    <a href="{{ aurl('sub_category') }}" class="menu-link">
+                        <i class="menu-icon tf-icons ti ti-tags"></i>
+                        <div data-i18n="Sub Category">
+                            Sub Category
+                        </div>
+                    </a>
+                </li>
+            @endcan
+
     </ul>
 </aside>

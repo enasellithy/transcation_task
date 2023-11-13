@@ -12,20 +12,6 @@ class HomeController extends Controller
 
     public function home()
     {
-        // redis has posts.all key exists
-        // posts found then it will return all post without touching the database
-        if ($articles = Redis::get('articles.all')) {
-            return json_decode($articles);
-        }
-
-        // get all post
-        $articles = Article::all();
-
-        // store into redis
-        Redis::set('articles.all', $articles);
-
-        // return all posts
-        return $articles;
-//        return view('website.home');
+        return view('dashboard.index');
     }
 }
