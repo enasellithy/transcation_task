@@ -22,7 +22,7 @@
 
 ### How Install
 - git clone https://github.com/enasellithy/transcation_task.git
-- cd trascation
+- cd transcation_task
 - composer install
 - cp .env.example .env
 - php artisan key:generate
