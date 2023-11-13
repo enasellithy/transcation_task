@@ -9,8 +9,6 @@
 
 ## About App
 
-Is simple artical system  have roles & permission in dashboard curd to articles
-user can add comments 
 
 - laravel 9
 - php 8.1
@@ -23,7 +21,7 @@ user can add comments
 
 
 ### How Install
-- git clone
+- git clone https://github.com/enasellithy/transcation_task.git
 - cd trascation
 - composer install
 - cp .env.example .env
