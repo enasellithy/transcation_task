@@ -22,6 +22,8 @@ Route::group(['prefix' => 'dashboard'], function () use ($namespace){
 
             Route::resource('sub_category', $namespace.'SubCategoryController');
             Route::get('sub_category/delete/{id}', $namespace.'SubCategoryController@delete');
+
+            Route::resource('transactions', $namespace.'TransactionController');
         });
     });
 });
