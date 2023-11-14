@@ -14,7 +14,7 @@
 - php 8.1
 
 ##### Packages 
-- spatie/laravel-permission[helper.php](app%2FHelpers%2Fhelper.php)
+- spatie/laravel-permission
 - livewire/livewire v 2.6
 - rappasoft/laravel-livewire-tables v 2.15
 - laravelcollective/html v 4.6
@@ -31,6 +31,4 @@
 
 
 ## API Link
-All Data api response have same architect design 
- - api/getArticles
- - api/getArticles/{id}
+All Data api response have same architect design
