@@ -21,13 +21,4 @@ class Transaction extends Model
     public function subCategory(){
         return $this->belongsTo(SubCategory::class,'sub_category_id')->withTrashed();
     }
-
-    public function setStatusAttribute($value){
-        if($value == '2021-01-10'){
-            $this->attributes['status'] = 'Overdue';
-        }
-        elseif($value == '2022-01-12'){
-            $this->attributes['status'] = 'Outstanding';
-        }
-    }
 }

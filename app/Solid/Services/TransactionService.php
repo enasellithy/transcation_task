@@ -27,4 +27,8 @@ class TransactionService
         $this->transactionRepository->delete($id);
         return true;
     }
+
+    public function checkDate($id,$date){
+        $this->transactionRepository->checkDate($id,$date);
+    }
 }

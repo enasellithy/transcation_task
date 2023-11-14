@@ -64,6 +64,6 @@ class TransactionTable extends DataTableComponent
 
     public function builder(): Builder
     {
-        return Transaction::with(['category','subCategory'])->latest()->select('*');
+        return Transaction::with(['category','subCategory'])->select('*');
     }
 }

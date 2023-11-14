@@ -102,6 +102,22 @@
                 </div>
             </div>
             <div class="col-sm-12">
+                <label class="form-label" for="basicPost">
+                    vat in inclusive
+                </label>
+                <div class="input-group input-group-merge">
+                    <select class="form-control" name="vat_in_inclusive" id="vat_in_inclusive">
+                        <option selected disabled>...</option>
+                        <option value="yes" {{ old('vat_in_inclusive') == 'yes' ? 'selected' : '' }}>
+                            Yes
+                        </option>
+                        <option value="no" {{ old('vat_in_inclusive') == 'no' ? 'selected' : '' }}>
+                            No
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-12">
                 <button type="submit" class="btn btn-primary data-submit me-sm-3 me-1">Save</button>
                 <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">Cancel</button>
             </div>

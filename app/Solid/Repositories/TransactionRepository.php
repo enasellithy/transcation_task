@@ -12,7 +12,7 @@ class TransactionRepository
 
     public function create(array $data)
     {
-        return Transaction::create($data);
+        $item = Transaction::create($data);
     }
 
     public function edit($id, array $data)
@@ -26,5 +26,16 @@ class TransactionRepository
 
     public function delete($id){
         return Transaction::find($id)->delete();
+    }
+
+    public function checkDate($date, $id){
+        if($date == '2021-01-10'){
+            Transaction::where('id',$id)->update(['status' => 'Overdue']);
+        }elseif($date == '2022-01-12'){
+            Transaction::where('id',$id)->update(['status' => 'Outstanding']);
+        }
+        else{
+            Transaction::where('id',$id)->update(['status' => 'Paid']);
+        }
     }
 }

@@ -21,9 +21,9 @@ return new class extends Migration
             $table->double('vat')->nullable();
             $table->enum('vat_in_inclusive',['yes','no'])->nullable();
             $table->enum('status',['Paid','Outstanding','Overdue'])->nullable();
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('sub_category_id');
+            $table->unsignedBigInteger('sub_category_id')->nullable();
             $table->foreign('sub_category_id')->references('id')->on('sub_categories')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();

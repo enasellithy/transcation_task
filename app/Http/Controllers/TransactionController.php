@@ -25,7 +25,8 @@ class TransactionController extends Controller
 
     public function store(AddTransactionRequest $r)
     {
-        $this->transactionService->create($r->all());
+        $item = $this->transactionService->create($r->all());
+        $this->transactionService->checkDate($item->id,$r['due_on']);
         $this->done();
         return back();
     }

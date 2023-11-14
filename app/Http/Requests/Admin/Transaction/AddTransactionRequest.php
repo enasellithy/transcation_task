@@ -33,14 +33,12 @@ class AddTransactionRequest extends FormRequest
             ],
             'due_on' => [
                 'required',
-                'date',
             ],
             'vat' => [
                 'required',
             ],
             'vat_in_inclusive' => [
                 'required',
-                'between:yes,no'
             ],
         ];
     }
