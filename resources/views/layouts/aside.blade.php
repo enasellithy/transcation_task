@@ -88,5 +88,17 @@
                 </li>
             @endcan
 
+            @can('transactions.index')
+
+                <li class="menu-item {{ active_link('dashboard/transactions') }}">
+                    <a href="{{ aurl('transactions') }}" class="menu-link">
+                        <i class="menu-icon tf-icons ti ti-tags"></i>
+                        <div data-i18n="Transaction">
+                            Transaction
+                        </div>
+                    </a>
+                </li>
+            @endcan
+
     </ul>
 </aside>

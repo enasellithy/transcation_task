@@ -29,4 +29,8 @@ class CategoryService
         $user->delete();
         return true;
     }
+
+    public function getSubCat($id){
+        return $this->categoryRepository->getSubCategory($id);
+    }
 }

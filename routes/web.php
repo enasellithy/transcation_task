@@ -8,8 +8,11 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'dashboard'], function () use ($namespace){
-    Route::get('login', $namespace.'Auth\LoginController@showLogin');
-    Route::post('login_post', $namespace.'Auth\LoginController@login_post');
+
+    Route::group(['middleware' => 'guest'], function () use ($namespace){
+        Route::get('login', $namespace.'Auth\LoginController@showLogin');
+        Route::post('login_post', $namespace.'Auth\LoginController@login_post');
+    });
 
     Route::group(['middleware' => 'auth'], function () use ($namespace){
         Route::get('/', $namespace.'HomeController@home')->name('home');

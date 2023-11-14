@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Admin\Category\AddCategoryRequest;
 use App\Http\Requests\Admin\Category\EditCategoryRequest;
+use App\Http\Resources\API\SubCategoryResource;
 use App\Solid\Services\CategoryService;
+use App\Solid\Traits\JSONTraits;
 use App\Solid\Traits\MessageTraits;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    use MessageTraits;
+    use MessageTraits, JSONTraits;
 
     protected $categoryService;
 
@@ -29,6 +31,12 @@ class CategoryController extends Controller
         $this->categoryService->create($r->all());
         $this->done();
         return back();
+    }
+
+    public function show($id)
+    {
+        $data = SubCategoryResource::collection($this->categoryService->getSubCat($id));
+        return $this->whenDone($data);
     }
 
     public function update($id, EditCategoryRequest $r)

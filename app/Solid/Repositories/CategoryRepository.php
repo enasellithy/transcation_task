@@ -3,6 +3,7 @@
 namespace App\Solid\Repositories;
 
 use App\Models\Category;
+use App\Models\SubCategory;
 
 class CategoryRepository
 {
@@ -22,5 +23,9 @@ class CategoryRepository
 
     public function show($id){
         return Category::find($id);
+    }
+
+    public function getSubCategory($id){
+        return SubCategory::where('category_id',$id)->latest()->get();
     }
 }

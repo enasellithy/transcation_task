@@ -12,7 +12,7 @@ class Authenticate extends  Middleware
         if (Auth::check()) {
             return $next($request);
         }
-        return redirect()->route('dashboard.login');
+        return redirect(aurl('login'));
     }
 
 }

@@ -1,17 +1,15 @@
 <?php
 
+namespace App\Solid\Traits;
 
-namespace App\SOLID\Traits;
-
-
-trait JsonTrait
+trait JSONTraits
 {
     public function whenDone($data,$message = null)
     {
         return response()->json([
             'status' => true,
             'message' => $message == null ? 'Success' : $message,
-            'data_response' => $data,
+            'data' => $data,
         ],200);
     }
 
