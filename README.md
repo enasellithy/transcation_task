@@ -32,3 +32,8 @@
 
 ## API Link
 All Data api response have same architect design
+
+## Covers
+- roles & permissions
+- Design Patterns (Repository & Service)
+- Solid
